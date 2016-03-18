@@ -22,6 +22,7 @@ export default function() {
     },
 
     willDestroyElement() {
+      this._super(...arguments);
       this.$().off('focus.bs-floating blur.bs-floating');
     }
   });
