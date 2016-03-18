@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Object.extend({
-  username: '',
+  username: 'dummy',
   password: '',
   email: '',
   description: ''
