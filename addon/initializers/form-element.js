@@ -10,9 +10,7 @@ export default function() {
   FormElement.reopen({
     classNameBindings: ['floatLabel:floating-label'],
 
-    floatLabel: computed('form.formLayout', function() {
-      return this.get('form.formLayout') === 'vertical';
-    }),
+    floatLabel: computed.oneWay('isVertical'),
 
     didInsertElement() {
       this._super(...arguments);
