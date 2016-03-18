@@ -1,0 +1,20 @@
+<h2 id="title">ember-bootstrap-floating-labels</h2>
+
+<div style="padding: 15px">
+{{#bs-form model=model action=(action 'submit')}}
+  {{bs-form-element controlType="email" label="Email" placeholder="Email" property="email"}}
+  {{bs-form-element controlType="text" label="Username" placeholder="Username" property="username"}}
+  {{bs-form-element controlType="password" label="Password" placeholder="Password" property="password"}}
+
+  {{bs-form-element controlType="textarea" label="Description" placeholder="Description" property="description"}}
+  {{bs-form-element controlType="select" label="Select" placeholder="Select" property="select"}}
+
+  {{#bs-form-element label="Custom" property="custom" as |value|}}
+    {{input class="custom-input form-control" value=value}}
+  {{/bs-form-element}}
+
+  {{bs-form-element controlType="checkbox" label="Remember me" property="rememberMe"}}
+
+  {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
+{{/bs-form}}
+</div>
