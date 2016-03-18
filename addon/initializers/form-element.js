@@ -9,8 +9,7 @@ const {
 export default function() {
   FormElement.reopen({
     classNameBindings: ['floatLabel:floating-label'],
-
-    floatLabel: computed.oneWay('isVertical'),
+    floatLabel: computed.or('isVertical', 'isInline'),
 
     didInsertElement() {
       this._super(...arguments);
