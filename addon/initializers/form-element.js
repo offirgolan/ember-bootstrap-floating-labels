@@ -18,9 +18,11 @@ export default function() {
         this.$('.form-control').on('focus.bs-floating blur.bs-floating', (e) => {
           this.$().toggleClass('focused', (e.type === 'focus' || !isEmpty(this.get('value'))));
         });
-        run.scheduleOnce('afterRender', () => {
-          this.$('.form-control').trigger('blur');
-        });
+        if (!isEmpty(this.get('value'))) {
+          run.scheduleOnce('afterRender', () => {
+            this.$('.form-control').trigger('blur');
+          });
+        }
       }
     },
 
