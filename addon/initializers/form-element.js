@@ -15,8 +15,8 @@ export default function() {
     didInsertElement() {
       this._super(...arguments);
       if (this.get('floatLabel')) {
-        this.$('.form-control').on('focus.bs-floating blur.bs-floating', (e) => {
-          this.$().toggleClass('focused', (e.type === 'focus' || !isEmpty(this.get('value'))));
+        this.$('.form-control').on('focusin.bs-floating focusout.bs-floating blur.bs-floating', (e) => {
+          this.$().toggleClass('focused', (e.type === 'focusin' || !isEmpty(this.get('value'))));
         });
         if (!isEmpty(this.get('value'))) {
           run.scheduleOnce('afterRender', () => {
@@ -28,7 +28,7 @@ export default function() {
 
     willDestroyElement() {
       this._super(...arguments);
-      this.$().off('focus.bs-floating blur.bs-floating');
+      this.$().off('focusin.bs-floating focusout.bs-floating blur.bs-floating');
     }
   });
 }
