@@ -11,27 +11,20 @@ export default function() {
     floatLabel: computed.or('isVertical', 'isInline'),
 
     hasContent: computed.notEmpty('value'),
-    hasFocus: false,
+    _inFocus: false,
 
-    didInsertElement() {
-      this._super(...arguments);
-      if(this.get('hasContent') && this.get('floatLabel')) {
-        this.set('hasFocus', true);
-      }
-    },
+    hasFocus: computed('floatLabel', 'hasContent', 'disabled', '_inFocus', function() {
+      return this.get('floatLabel') && (this.get('hasContent') || this.get('disabled') || this.get('_inFocus'));
+    }),
 
     focusIn() {
       this._super(...arguments);
-      if(this.get('floatLabel')) {
-        this.set('hasFocus', true);
-      }
+      this.set('_inFocus', true);
     },
 
     focusOut() {
       this._super(...arguments);
-      if(!this.get('hasContent') && this.get('floatLabel')) {
-        this.set('hasFocus', false);
-      }
+      this.set('_inFocus', false);
     }
   });
 }
