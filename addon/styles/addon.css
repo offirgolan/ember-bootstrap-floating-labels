@@ -6,22 +6,26 @@
 .floating-label .control-label {
   font-size: 16px;
   font-weight: 400;
-  opacity: 0.4;
-  pointer-events: none;
-  position: absolute;
   line-height: 22px;
+  position: absolute;
+  z-index: 1;
   top: 5px;
   left: 5px;
-  transform: translate3d(0, 0, 0) scale(1);
-  transform-origin: left top 0px;
-  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-  z-index: 1;
+  -webkit-transition: all 450ms cubic-bezier(.23, 1, .32, 1) 0ms;
+  transition: all 450ms cubic-bezier(.23, 1, .32, 1) 0ms;
+  -webkit-transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
+  -webkit-transform-origin: left top 0;
+    transform-origin: left top 0;
+  pointer-events: none;
+  opacity: .4;
 }
 
-.form-group.floating-label.has-focus .control-label {
-  opacity: 1;
+.floating-label.has-focus .control-label {
   top: -20px;
-  transform: perspective(1px) scale(0.75);
+  -webkit-transform: perspective(1px) scale(.75);
+    transform: perspective(1px) scale(.75);
+  opacity: 1;
 }
 
 .floating-label.has-feedback label ~ .form-control-feedback {
@@ -29,14 +33,11 @@
 }
 
 .floating-label .form-control::-webkit-input-placeholder {
-  color: transparent;
-  transition: 240ms;
+  opacity: 0;
+  -webkit-transition: all 350ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    transition: all 350ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
 }
 
-..floating-label form-control:focus::-webkit-input-placeholder {
-  transition: none;
-}
-
-.floating-label .form-group.has-focus .form-control::-webkit-input-placeholder {
-  color: #bbb;
+.floating-label .form-control:focus::-webkit-input-placeholder {
+  opacity: 1;
 }
