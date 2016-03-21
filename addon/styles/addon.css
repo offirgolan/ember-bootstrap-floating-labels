@@ -18,7 +18,7 @@
   z-index: 1;
 }
 
-.form-group.floating-label.focused .control-label {
+.form-group.floating-label.has-focus .control-label {
   opacity: 1;
   top: -20px;
   transform: perspective(1px) scale(0.75);
@@ -37,6 +37,6 @@
   transition: none;
 }
 
-.floating-label .form-group.focused .form-control::-webkit-input-placeholder {
+.floating-label .form-group.has-focus .form-control::-webkit-input-placeholder {
   color: #bbb;
 }

@@ -2,33 +2,36 @@ import Ember from 'ember';
 import FormElement from 'ember-bootstrap/components/bs-form-element';
 
 const {
-  run,
-  isEmpty,
   computed
 } = Ember;
 
 export default function() {
   FormElement.reopen({
-    classNameBindings: ['floatLabel:floating-label'],
+    classNameBindings: ['floatLabel:floating-label', 'hasFocus'],
     floatLabel: computed.or('isVertical', 'isInline'),
+
+    hasContent: computed.notEmpty('value'),
+    hasFocus: false,
 
     didInsertElement() {
       this._super(...arguments);
-      if (this.get('floatLabel')) {
-        this.$('.form-control').on('focusin.bs-floating focusout.bs-floating blur.bs-floating', (e) => {
-          this.$().toggleClass('focused', (e.type === 'focusin' || !isEmpty(this.get('value'))));
-        });
-        if (!isEmpty(this.get('value'))) {
-          run.scheduleOnce('afterRender', () => {
-            this.$('.form-control').trigger('blur');
-          });
-        }
+      if(this.get('hasContent') && this.get('floatLabel')) {
+        this.set('hasFocus', true);
       }
     },
 
-    willDestroyElement() {
+    focusIn() {
       this._super(...arguments);
-      this.$().off('focusin.bs-floating focusout.bs-floating blur.bs-floating');
+      if(this.get('floatLabel')) {
+        this.set('hasFocus', true);
+      }
+    },
+
+    focusOut() {
+      this._super(...arguments);
+      if(!this.get('hasContent') && this.get('floatLabel')) {
+        this.set('hasFocus', false);
+      }
     }
   });
 }
