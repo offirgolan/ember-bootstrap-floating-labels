@@ -1,24 +1,21 @@
 # ember-bootstrap-floating-labels
 
-## Running
+[![npm version](https://badge.fury.io/js/ember-bootstrap-floating-labels.svg)](http://badge.fury.io/js/ember-bootstrap-floating-labels)
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+A react like floating label addition to [ember-bootstrap](https://github.com/kaliber5/ember-bootstrap)'s `bs-form-element` component.  
 
-## Running Tests
+![Floating Label](https://imgur.com/7EbbjBe.gif)
 
-* `ember test`
-* `ember test --server`
+## Install
 
-## Building
+```bash
+ember install ember-bootstrap-floating-labels
+```
 
-* `ember build`
+## Usage
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+Floating labels will work out of the box if the `bs-form-element` is wrapped in an __inline__ or __vertical__ `bs-form`. To manually enable the floating label feature, set the `floatLabel` property to __true__.
 
-[npm]: https://www.npmjs.org/package/ember-bootstrap-floating-labels
-[npm-badge]: https://img.shields.io/npm/v/ember-bootstrap-floating-labels.svg?style=flat-square
-[travis]: https://travis-ci.org/offirgolan/ember-bootstrap-floating-labels
-[travis-badge]: https://img.shields.io/travis/offirgolan/ember-bootstrap-floating-labels/master.svg?style=flat-square
-[embadge]: http://embadge.io/
-[ember-badge]: http://embadge.io/v1/badge.svg?start=1.13.0
+```hbs
+{{bs-form-element value=value floatLabel=true label='Floating Label Text' placeholder='Hint Text'}}
+```
