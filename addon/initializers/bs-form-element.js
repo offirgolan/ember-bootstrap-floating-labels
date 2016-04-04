@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import FormElement from 'ember-bootstrap/components/bs-form-element';
+import BsFormElement from 'ember-bootstrap/components/bs-form-element';
 
 const {
   isEmpty,
@@ -7,7 +7,7 @@ const {
 } = Ember;
 
 export default function() {
-  FormElement.reopen({
+  BsFormElement.reopen({
     classNameBindings: ['floatLabel:floating-label', 'hasFocus'],
     floatLabel: computed.or('isVertical', 'isInline'),
 
