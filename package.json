@@ -54,7 +54,6 @@
     "ember-cli-babel": "^5.1.5"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config",
-    "after": "ember-bootstrap"
+    "configPath": "tests/dummy/config"
   }
 }
