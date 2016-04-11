@@ -23,9 +23,10 @@
 
 .floating-label.has-focus .control-label {
   top: -20px;
-  -webkit-transform: perspective(1px) scale(.75);
-    transform: perspective(1px) scale(.75);
   opacity: 1;
+  transform: scale(.75);
+    -moz-transform: scale(.75);
+      -webkit-transform: perspective(1px) scale(.75);
 }
 
 .floating-label.has-feedback label ~ .form-control-feedback {
