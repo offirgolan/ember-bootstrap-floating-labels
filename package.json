@@ -1,6 +1,6 @@
 {
   "name": "ember-bootstrap-floating-labels",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Floating labels for ember-bootstrap",
   "directories": {
     "doc": "doc",
